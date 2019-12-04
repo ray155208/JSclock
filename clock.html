@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body{
+      background: #edfff2;
+      text-align: center;
+    }
+
+  img{
+     height: 120% ;
+     width: auto;
+  }
+
+
+   .circle{
+     width: 800px;
+     height: 800px; 
+     padding: 20px; 
+     border-radius: 300px;
+     position: relative;
+     margin: auto; 
+   }
+
+   .jsec2{
+     width: 54px;
+     height: 700px;
+     position: absolute;
+     background: url('imags/秒針.png');
+     left: 57%;
+     top: 17%;
+     animation: j_s 60s infinite linear;
+
+   }
+   .jmin2{
+     width: 54px;
+     height: 700px;
+     position: absolute;
+     background: url('imags/分針.png');
+     left: 57%;
+     top: 17%;
+     animation: j_m 3600s infinite linear;
+   }
+   .jhour2{
+     width: 54px;
+     height: 700px;
+     position: absolute;
+     background: url('imags/時針.png');
+     left:57%;
+     top: 17%;
+     animation: j_h 43200s infinite linear;
+   }
+ 
+   </style>
+   <script>
+     var time = new Date();
+     var pos_s = time.getSeconds();
+     var pos_m = time.getMinutes();
+     var pos_h = time.getHours();
+     var x = pos_s*6;
+     var y = pos_m*6;
+     var z =(pos_h*30)+(pos_m*0.5);
+
+
+     document.write(`
+   <style>
+   @keyframes j_s{
+     from{transform: rotate(${x}deg);}
+     to{transform: rotate(${x + 360}deg);}
+   }
+   @keyframes j_m{
+     from{transform: rotate(${y}deg);}
+     to{transform: rotate(${y + 360}deg);}
+   }
+   @keyframes j_h{
+     from{transform: rotate(${z}deg);}
+     to{transform: rotate(${z + 360}deg);}
+   } 
+   `)    
+  </script>
+  </style>
+
+</head>
+<body>
+  <div class="circle"><img src='imags/clock.png'>
+    <div class="jmin2"></div>
+    <div class="jhour2"></div>
+    <div class="jsec2"></div>
+  </div>
+
+ 
+
+ 
+  
+</body>
+</html>
